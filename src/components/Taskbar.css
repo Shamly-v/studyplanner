@@ -1,0 +1,38 @@
+
+/* Taskbar.css */
+
+.taskbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .search-bar {
+    margin-right: 10px;
+    padding: 5px;
+    background-color: #ffffff;
+    border: solid 0.5px black;
+    border-radius: 15px;
+    font-size: 16px;
+  }
+.search-bar::placeholder{
+  color: #cec6c6;
+}
+  
+  .icons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .icon {
+    background-color: antiquewhitez;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  

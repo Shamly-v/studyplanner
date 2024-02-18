@@ -1,0 +1,56 @@
+/* components/Navbar.css */
+*{
+  text-decoration: none;
+}
+.navbar-container {
+  display: flex;
+  height: 100vh;
+  min-width: 100px; /* Set a minimum width for responsiveness */
+  width: 15%;
+  background-color: rgb(14, 14, 15);
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  color: rgb(40, 83, 137);
+}
+
+.tab {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding: 10px;
+  width: 100%; /* Set the width to 100% for each tab */
+  box-sizing: border-box; /* Include padding in the width calculation */
+  transition: background-color 0.3s ease;
+}
+
+.tab a {
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Inherit the color from the parent (.tab) */
+}
+
+.tab:hover {
+  color: black;
+  background-color: #ffffff;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box; /* Include padding in the width calculation */
+  z-index: 1; /* Ensure the tab covers other elements */
+}
+
+.active{
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  width: 100%;}
+.icon {
+  font-size: 24px;
+  margin-bottom: 5px;
+}

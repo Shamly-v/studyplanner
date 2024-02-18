@@ -1,0 +1,19 @@
+/* Resource.css */
+
+.big-container {
+  margin-left: 200px;
+  background-color: #000000; /* Change the color as needed */
+  padding: 20px;
+  
+}
+
+.inner-container {
+  background-color: #ffffff; /* Change the color as needed */
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+.heading{
+  color: white;
+}
+

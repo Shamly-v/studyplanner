@@ -1,0 +1,117 @@
+/* Login.css */
+
+body {
+  margin: 0;
+  overflow: hidden; /* Remove the scroll */
+}
+
+.login-section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  max-width: 1200px; /* Added max-width for better readability on larger screens */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px; /* Added padding for better spacing on smaller screens */
+}
+
+.image-container {
+  flex: 0 0 50%; /* Adjusted width for better responsiveness */
+  text-align: center; /* Center the image on smaller screens */
+  margin-bottom: 20px; /* Added margin for spacing between image and form on smaller screens */
+}
+
+.image {
+  max-width: 100%; /* Make the image responsive */
+  height: auto;
+}
+
+.form-container {
+  border: 1px rgb(197, 194, 194) solid;
+  flex: 0 0 40%; /* Adjusted width for a lesser form width */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-container {
+  margin-bottom: 16px;
+}
+
+label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.input-login {
+  width: 100%;
+  padding: 5px; /* Adjusted padding for input fields */
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox input {
+  margin-right: 6px;
+}
+
+.forgot-password-link {
+  font-size: 14px;
+  color: #3b71ca;
+  text-decoration: none;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.login-button {
+  background-color: #3b71ca;
+  color: white;
+  padding: 12px 30px; /* Adjusted padding for the button */
+  font-size: 16px; /* Increased font size for the button text */
+  border-radius: 5px; /* Added border-radius for rounded corners */
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s ease; /* Added transition for a smoother hover effect */
+}
+
+.login-button:hover {
+  background-color: #315eab; /* Darker color on hover */
+}
+
+.register-link {
+  margin-top: 10px; /* Adjusted margin for better spacing */
+  font-size: 14px;
+}
+
+.register-link-text {
+  color: #ff4d4f;
+  text-decoration: none;
+}
+
+.register-link-text:hover {
+  text-decoration: underline;
+}

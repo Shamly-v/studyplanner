@@ -1,0 +1,17 @@
+body {
+  display: flex;
+}
+.containers {
+  display: flex;
+  /* justify-content: center;
+  align-items: center;
+  height: 200rem; */
+}
+.home_container {
+  display: flex;
+  /* margin-left: 15%; */
+}
+.task_container {
+  display: block;
+  margin-left: 15%;
+}
