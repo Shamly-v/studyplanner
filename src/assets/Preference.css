@@ -1,0 +1,35 @@
+/* Preference.css */
+
+.preferences-form {
+  margin-left: 45rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.App {
+  margin-left: 35rem;
+  font-size: 1rem;
+}
+
+.preferences-form h1 {
+  color: blue;
+}
+
+.preferences-form label {
+  margin-bottom: 10px;
+  font-size: 1.2rem !important; /* Add !important to ensure the style is applied */
+}
+
+.preferences-form input,
+.preferences-form select {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  font-size: 1rem !important; /* Add !important to ensure the style is applied */
+}
+
+
+

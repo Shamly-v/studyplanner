@@ -1,0 +1,20 @@
+.body{
+    background-image: url(C:\Users\admin\Desktop\studyplanner\demo\studyplanner\src\components\blue-pink-papers-happy-teacher-s-day-concept.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+
+height: 100vh;
+}
+.contents-landing{
+    margin-left: 66rem;}
+#planner{
+    color: white;
+    font-size: 3rem;
+}
+.btns{
+
+}
+#conbtn{
+    border-radius: 5px;
+    
+}

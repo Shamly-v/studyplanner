@@ -5,15 +5,11 @@ import MainContentBox from "../components/MainContentBox";
 
 const Home = () => {
   return (
-    <div className="home_container">
-      <Navbar active="home"/>
-      <div className="task_container">
-        <Taskbar />
-        <div className="containers">
-          <MainContentBox />
-          <MainContentBox />
-        </div>
-      </div>
+    <div>
+      <Navbar active="home" />
+      <Taskbar />
+      <MainContentBox />
+      <MainContentBox />{" "}
     </div>
   );
 };
