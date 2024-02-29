@@ -10,7 +10,7 @@
 }
 
 .App {
-  margin-left: 35rem;
+  margin-left: 15rem;
   font-size: 1rem;
 }
 
@@ -30,6 +30,27 @@
   margin-bottom: 1rem;
   font-size: 1rem !important; /* Add !important to ensure the style is applied */
 }
+.form-group{
+  margin-top: 1rem;
+}
+.form1{
+  border: 1px black solid;
+  border-radius: 5px;
+  padding: 2rem 2rem 2rem 2rem;
+  width: 40rem;
+}
 
+#subtn{
+  margin-top: 2rem;
+  border-radius: 5px;
+}
 
-
+.time{
+  display: flex;
+}
+#end{
+  margin-left: 1rem;
+}
+input{
+  border-radius: 5px;
+}

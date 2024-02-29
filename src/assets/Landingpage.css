@@ -1,20 +1,29 @@
-.body{
-    background-image: url(C:\Users\admin\Desktop\studyplanner\demo\studyplanner\src\components\blue-pink-papers-happy-teacher-s-day-concept.jpg);
-background-repeat: no-repeat;
-background-size: cover;
+.body {
+  background-image: url('blue-pink-papers-happy-teacher-s-day-concept.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 
-height: 100vh;
+  height: 100vh;
 }
-.contents-landing{
-    margin-left: 66rem;}
-#planner{
-    color: white;
-    font-size: 3rem;
+.contents-landing {
+  margin-left: 66rem;
 }
-.btns{
-
+.planner {
+  color: white;
+  font-size: 3rem;
 }
-#conbtn{
-    border-radius: 5px;
-    
+.btns {
+  margin-bottom: 2rem;
+}
+.conbtn {
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+margin-left: 3rem;
+background-color: rgb(39, 164, 164);
+color: rgb(211, 200, 200);
+height: 3rem;
+width: 5rem;
+size: 3rem;
+font-weight: 600;
 }

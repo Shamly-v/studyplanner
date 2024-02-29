@@ -59,7 +59,7 @@ const Preference = () => {
       <div className="App">
         <div className="content">
           <h1>PREFERENCES</h1>
-          <form onSubmit={handleSubmit} encType="multipart/form-data">
+          <form onSubmit={handleSubmit} encType="multipart/form-data" className="form1">
             {" "}
             {/* Ensure proper enctype */}
             <div className="form-group">
@@ -81,7 +81,7 @@ const Preference = () => {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group" id="end">
                 <label>End Time</label>
                 <input
                   type="time"
@@ -95,7 +95,7 @@ const Preference = () => {
               <label>Syllabus</label>
               <input type="file" name="syllabus" onChange={handleFileChange} />
             </div>
-            <div className="form-group">
+           <div className="time"> <div className="form-group">
               <label>Start Date</label>
               <input
                 type="date"
@@ -104,7 +104,7 @@ const Preference = () => {
                 onChange={handleChange}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group" id="end">
               <label>End Date</label>
               <input
                 type="date"
@@ -112,7 +112,7 @@ const Preference = () => {
                 value={formData.endDate}
                 onChange={handleChange}
               />
-            </div>
+            </div></div>
             <div className="form-group">
               <label>Preferred Dates</label>
               <input
@@ -122,7 +122,7 @@ const Preference = () => {
                 onChange={handleChange}
               />
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" id="subtn">Submit</button>
           </form>
         </div>
       </div>

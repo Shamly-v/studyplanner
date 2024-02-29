@@ -1,15 +1,28 @@
+// Journal.js
+import "./Journal.css"
 import Navbar from "../components/Navbar";
-import React from "react";
+import React, { useState } from "react";
 import Taskbar from "../components/Taskbar";
-import MainContentBox from "../components/MainContentBox";
+import Mainbox from "../components/Mainbox";
 
 const Journal = () => {
+  const [isMainboxVisible, setMainboxVisible] = useState(false);
+
+  const handlePlusClick = () => {
+    setMainboxVisible(true);
+  };
+
   return (
     <div>
       <Navbar active="journal" />
       <Taskbar />
-      <MainContentBox />
-      <MainContentBox />{" "}
+      {!isMainboxVisible && (
+        <div className="plusCard" onClick={handlePlusClick}>
+          {/* Add your plus sign or any UI element here */}
+          +
+        </div>
+      )}
+      {isMainboxVisible && <Mainbox />}
     </div>
   );
 };
