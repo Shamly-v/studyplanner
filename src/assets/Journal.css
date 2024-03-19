@@ -7,5 +7,6 @@
     border-radius: 5px;
     display: inline-block; /* or display: flex; depending on your layout */
     margin: 10px;
+    margin-left: 15rem;
   }
   
