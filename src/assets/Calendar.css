@@ -1,0 +1,50 @@
+/* Calendar.css */
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.schedule-container {
+  margin-left: 18%;
+  padding-left: 10px; /* Adjusted padding to align with the left edge of schedule boxes */
+  padding-right: 18%;
+  margin-bottom: 5%;
+}
+
+.schedule-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.schedule-item {
+  width: calc(33.33% - 20px);
+  margin: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.schedule-item:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.date {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.details {
+  margin-left: 15px;
+}
+
+.details div {
+  margin-bottom: 5px;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}

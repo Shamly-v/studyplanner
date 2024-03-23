@@ -1,56 +1,88 @@
 /* Preference.css */
 
-.preferences-form {
-  margin-left: 45rem;
+.pref-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 100vh;
+  overflow-y: auto;
 }
 
-.App {
-  margin-left: 15rem;
-  font-size: 1rem;
+.pref-content {
+  width: 80%;
+  max-width: 800px;
+  margin-top: 20px;
 }
 
-.preferences-form h1 {
-  color: blue;
+.pref-content h1 {
+  text-align: center;
 }
 
-.preferences-form label {
-  margin-bottom: 10px;
-  font-size: 1.2rem !important; /* Add !important to ensure the style is applied */
-}
-
-.preferences-form input,
-.preferences-form select {
-  width: 100%;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
-  font-size: 1rem !important; /* Add !important to ensure the style is applied */
-}
-.form-group{
-  margin-top: 1rem;
-}
-.form1{
-  border: 1px black solid;
-  border-radius: 5px;
-  padding: 2rem 2rem 2rem 2rem;
-  width: 40rem;
-}
-
-#subtn{
-  margin-top: 2rem;
-  border-radius: 5px;
-}
-
-.time{
+.pref-form {
   display: flex;
+  flex-direction: column;
 }
-#end{
-  margin-left: 1rem;
+
+.form-group {
+  margin-bottom: 20px;
 }
-input{
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-group select,
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group input[type="file"] {
+  width: 100%;
+  padding: 10px;
   border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-group select {
+  appearance: none;
+  background-color: #fff;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.existing-preferences-container {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.existing-preferences {
+  margin-top: 10px;
+}
+
+.existing-preferences p {
+  margin: 5px 0;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
 }

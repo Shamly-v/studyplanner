@@ -1,12 +1,53 @@
-/* Add this to your CSS file */
+.journal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto; /* Add vertical scrolling */
+  height: 100vh; /* Set the height to fill the viewport */
+}
+
+.journal-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 18%;
+  justify-content: flex-start; /* Start from left */
+  align-items: flex-start; /* Start from top */
+  max-width: calc(
+    100% - 20px
+  ); /* Adjust to leave some space for the plus sign */
+  padding-bottom: 50px; /* Add some padding to prevent content from being hidden behind the plus sign */
+}
+
+.contentCard {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  width: calc(
+    50% - 20px
+  ); /* Two boxes in a row, leaving some space for margins */
+  transition: all 0.3s ease;
+}
+
 .plusCard {
-    cursor: pointer;
-    background-color: lightblue; /* Add your desired background color */
-    padding: 10px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    display: inline-block; /* or display: flex; depending on your layout */
-    margin: 10px;
-    margin-left: 15rem;
-  }
-  
+  cursor: pointer;
+  background-color: lightblue;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin: 10px;
+  transition: all 0.3s ease;
+  position: fixed; /* Set position to fixed */
+  bottom: 20px; /* Adjust bottom position */
+  right: 20px; /* Adjust right position */
+  z-index: 999; /* Set a high z-index to ensure it's always on top */
+}
+
+.plusCard:hover {
+  background-color: lightsteelblue;
+}
+
+.contentCard p {
+  margin: 5px 0;
+}

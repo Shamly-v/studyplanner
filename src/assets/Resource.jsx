@@ -2,14 +2,19 @@ import Navbar from "../components/Navbar";
 import React, { useState, useEffect } from "react";
 import Taskbar from "../components/Taskbar";
 import "./Resource.css";
+import { useParams } from "react-router-dom";
 
 const Resource = () => {
   const [resourceData, setResourceData] = useState([]);
+  const { userid } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/resource");
+        // Fetch resources for a specific user using the userid in the URL
+        const response = await fetch(
+          `http://localhost:5000/resource/${userid}`
+        );
         const data = await response.json();
         setResourceData(data.events || []); // Ensure events field exists and handle empty array
       } catch (error) {
@@ -18,7 +23,7 @@ const Resource = () => {
     };
 
     fetchData();
-  }, []);
+  }, [userid]); // Add userid as a dependency
 
   return (
     <div className="contentbox">
