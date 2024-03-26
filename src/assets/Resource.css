@@ -1,20 +1,63 @@
-.big-container {
-  margin-left: 230px;
-  background-color: #000000;
+/* Styles for Resource page */
+body {
+  font-family: "Poppins", sans-serif;
+  
+}
+.main{
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.resource-container {
+  max-width: 1200px;
   padding: 20px;
-  border-radius: 10px;
+  margin-left: 18%;
+}
+
+.video-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.video-card {
+  position: relative;
+  border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.3s ease;
 }
 
-.inner-container {
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 20px;
-  margin-top: 5px;
-  overflow-y: scroll; /* Enable vertical scrolling */
-  max-height: 400px; /* Set a maximum height for the container */
+.video-card:hover {
+  transform: translateY(-5px);
 }
 
-.heading {
-  color: white;
+.video-thumbnail {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.video-details {
+  padding: 15px;
+}
+
+.video-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.video-topic {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.video-description {
+  font-size: 14px;
+  color: #666;
 }

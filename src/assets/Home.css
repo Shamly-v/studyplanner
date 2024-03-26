@@ -1,17 +1,57 @@
-body {
+/* Home.css */
+.main{
+  height: 100vh;
+  overflow-y: auto;
+}
+.home {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: 18%;
+  overflow-y: auto;
+  height: 100vh;
 }
-.containers {
-  display: flex;
-  /* justify-content: center;
-  align-items: center;
-  height: 200rem; */
+
+.name{
+  margin-left: 18%;
 }
-.home_container {
-  display: flex;
-  /* margin-left: 15%; */
+
+.card {
+  width: 300px;
+  max-height: 10rem;
+  margin: 9.5px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px; /* Adding curved corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+  height: 20rem;
 }
-.task_container {
-  display: block;
-  margin-left: 15%;
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+.progress-bar {
+  height: 20px;
+  background-color: #49b8ac;
+  border-radius: 5px; /* Adjusting progress bar border radius */
+  border: 1px solid blue;
+}
+
+
+.card-c {
+  width: 300px;
+  max-height: 15rem;
+  margin: 9.5px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px; /* Adding curved corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+  height: 20rem;
+}
+  .card-c iframe{
+    height: auto;
+    width: auto;
+  }

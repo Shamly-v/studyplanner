@@ -8,8 +8,10 @@ import "./Journal.css";
 const Journal = () => {
   const { userid } = useParams();
   const [isMainboxVisible, setMainboxVisible] = useState(false);
-  const [isTextAreaVisible, setTextAreaVisible] = useState(false); // New state variable to track text area visibility
+  const [isTextAreaVisible, setTextAreaVisible] = useState(false);
   const [savedContent, setSavedContent] = useState([]);
+  const [displayContent, setDisplayContent] = useState([]);
+  console.log(displayContent);
 
   useEffect(() => {
     const fetchJournalContent = async () => {
@@ -27,7 +29,7 @@ const Journal = () => {
 
   const handlePlusClick = () => {
     setMainboxVisible(true);
-    setTextAreaVisible(true); // Show text area when plus sign is clicked
+    setTextAreaVisible(false);
   };
 
   const handleSaveContent = async (content) => {
@@ -40,45 +42,120 @@ const Journal = () => {
         body: JSON.stringify(content),
       });
       const data = await response.json();
-      setSavedContent((prevContent) => [...prevContent, data]); // Append new content to existing content
+      setSavedContent((prevContent) => [...prevContent, data]);
       setMainboxVisible(false);
-      setTextAreaVisible(false); // Hide text area after saving content
+      setTextAreaVisible(false);
     } catch (error) {
       console.error("Error saving journal content:", error);
     }
   };
 
+  const handleEdit = (index) => {
+    // Copy the saved content array
+    const updatedContent = [...savedContent];
+    // Set the editable property to true for the specified card
+    updatedContent[index].editable = true;
+    // Update state with the modified content
+    setSavedContent(updatedContent);
+  };
+
+  const handleDelete = async (index) => {
+    try {
+      // Delete the card from the backend using its unique identifier
+      await fetch(`http://localhost:5000/journal/${userid}/${index}`, {
+        method: "DELETE",
+      });
+      // Remove the card from the savedContent state
+      const updatedContent = savedContent.filter((_, i) => i !== index);
+      setSavedContent(updatedContent);
+    } catch (error) {
+      console.error("Error deleting journal content:", error);
+    }
+  };
+
+  const handleUpdate = async (index, updatedContent) => {
+    try {
+      console.log(updatedContent + "consoled");
+      const response = await fetch(
+        `http://localhost:5000/journal/${userid}/${index}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedContent),
+        }
+      );
+      const data = await response.json();
+      console.log("Updated journal content:", data);
+
+      // Update the savedContent state with the updated content
+      const updatedSavedContent = [...savedContent];
+      updatedSavedContent[index] = data;
+      setSavedContent(updatedSavedContent);
+
+      // Set editable property back to false
+      updatedContent.editable = false;
+    } catch (error) {
+      console.error("Error updating journal content:", error);
+    }
+  };
+
   return (
-    <div className="journal-container">
+    <div className="main">
       <Navbar active="journal" />
       <Taskbar />
-      <div className="journal-content">
-        {Array.isArray(savedContent) &&
-          savedContent.map((content, index) => (
-            <div key={index} className="contentCard">
-              {/* Display your content here */}
-              <p>{content.content1}</p>
-              <p>{content.content2}</p>
+      <div className="journal-container">
+        <div className="journal-content">
+          {Array.isArray(savedContent) &&
+            savedContent.map((content, index) => (
+              <div key={index} className="contentCard">
+                {content.editable ? (
+                  <div>
+                    <textarea
+                      defaultValue={content.content2}
+                      onChange={(e) => {
+                        const updatedContent = {
+                          ...content,
+                          content2: e.target.value,
+                        };
+                        setDisplayContent(updatedContent);
+                      }}
+                    />
+                    <button
+                      onClick={() => {
+                        const updatedContent = {
+                          displayContent,
+                          editable: false,
+                        };
+                        console.log(updatedContent);
+                        handleUpdate(index, displayContent);
+                      }}
+                    >
+                      Save
+                    </button>
+                  </div>
+                ) : (
+                  <div className="cardbox">
+                    <p id="title">{content.title}</p>
+                    <p>{content.content2}</p>
+                    <div className="cardButtons">
+                      <button onClick={() => handleEdit(index)}>Edit</button>
+                      <button onClick={() => handleDelete(index)}>
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          {!isMainboxVisible && !isTextAreaVisible && (
+            <div className="plusCard" onClick={handlePlusClick}>
+              <span>Add</span>
             </div>
-          ))}
-        {!isMainboxVisible && !isTextAreaVisible && ( // Only display plus sign if main box and text area are not visible
-          <div className="plusCard" onClick={handlePlusClick}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="feather feather-plus"
-            >
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
-          </div>
-        )}
-        {isMainboxVisible && <Mainbox onSave={handleSaveContent} />}
+          )}
+          {isMainboxVisible && <Mainbox onSave={handleSaveContent} />}
+        </div>
       </div>
     </div>
   );

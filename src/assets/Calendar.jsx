@@ -46,7 +46,7 @@ const Calendar = () => {
   };
 
   return (
-    <div>
+    <div className="main">
       <Navbar active="calendar" />
       <Taskbar />
       <div className="schedule-container">

@@ -1,0 +1,82 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .error-message {
+    color: red;
+  }
+  
+  .profile-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .profile-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .profile-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .image-upload {
+    display: none;
+  }
+  
+  .upload-label {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .upload-label:hover {
+    background-color: #0056b3;
+  }
+  
+  .profile-details {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-info {
+    margin-bottom: 10px;
+  }
+  
+  .logout-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .logout-button:hover {
+    background-color: #0056b3;
+  }
+  

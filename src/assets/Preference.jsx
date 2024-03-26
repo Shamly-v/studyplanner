@@ -118,86 +118,92 @@ const Preference = () => {
   };
 
   return (
-    <div className="pref-container">
+    <div className="main">
       <Navbar active="preferences" />
       <Taskbar />
-      <div className="pref-content">
-        <h1>Preferences</h1>
-        {!editMode && existingPreferences ? (
-          renderExistingPreferences()
-        ) : (
-          <form
-            onSubmit={handleSubmit}
-            encType="multipart/form-data"
-            className="pref-form"
-          >
-            <div className="form-group">
-              <label>Start Date</label>
-              <input
-                type="date"
-                name="startDate"
-                value={formData.startDate}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label>End Date</label>
-              <input
-                type="date"
-                name="endDate"
-                value={formData.endDate}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label>Number of Revisions Needed</label>
-              <input
-                type="number"
-                name="numRevisionsNeeded"
-                value={formData.numRevisionsNeeded}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label>Preferable Time</label>
-              <select
-                name="preferableTime"
-                value={formData.preferableTime}
-                onChange={handleChange}
-              >
-                <option value="morning">Morning</option>
-                <option value="night">Night</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label>Weekdays Schedule</label>
-              <select
-                name="weekdaysSchedule"
-                value={formData.weekdaysSchedule}
-                onChange={handleChange}
-              >
-                <option value="relaxed">Relaxed</option>
-                <option value="balanced">Balanced</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label>Weekend Schedule</label>
-              <select
-                name="weekendSchedule"
-                value={formData.weekendSchedule}
-                onChange={handleChange}
-              >
-                <option value="balanced">Balanced</option>
-                <option value="tight">Tight</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label>Syllabus</label>
-              <input type="file" name="syllabus" onChange={handleFileChange} />
-            </div>
-            <button type="submit">Submit</button>
-          </form>
-        )}
+      <div className="pref-container">
+        <div className="pref-content">
+          <h1>Preferences</h1>
+          {!editMode && existingPreferences ? (
+            renderExistingPreferences()
+          ) : (
+            <form
+              onSubmit={handleSubmit}
+              encType="multipart/form-data"
+              className="pref-form"
+            >
+              <div className="form-group">
+                <label>Start Date</label>
+                <input
+                  type="date"
+                  name="startDate"
+                  value={formData.startDate}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label>End Date</label>
+                <input
+                  type="date"
+                  name="endDate"
+                  value={formData.endDate}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label>Number of Revisions Needed</label>
+                <input
+                  type="number"
+                  name="numRevisionsNeeded"
+                  value={formData.numRevisionsNeeded}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label>Preferable Time</label>
+                <select
+                  name="preferableTime"
+                  value={formData.preferableTime}
+                  onChange={handleChange}
+                >
+                  <option value="morning">Morning</option>
+                  <option value="night">Night</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label>Weekdays Schedule</label>
+                <select
+                  name="weekdaysSchedule"
+                  value={formData.weekdaysSchedule}
+                  onChange={handleChange}
+                >
+                  <option value="relaxed">Relaxed</option>
+                  <option value="balanced">Balanced</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label>Weekend Schedule</label>
+                <select
+                  name="weekendSchedule"
+                  value={formData.weekendSchedule}
+                  onChange={handleChange}
+                >
+                  <option value="balanced">Balanced</option>
+                  <option value="tight">Tight</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label>Syllabus</label>
+                <input
+                  type="file"
+                  name="syllabus"
+                  onChange={handleFileChange}
+                />
+              </div>
+              <button type="submit">Submit</button>
+            </form>
+          )}
+        </div>
       </div>
     </div>
   );

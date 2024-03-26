@@ -4,9 +4,14 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.main{
+  height: 100vh;
+  overflow-y: auto;
+}
+
 .schedule-container {
   margin-left: 18%;
-  padding-left: 10px; /* Adjusted padding to align with the left edge of schedule boxes */
+  padding-left: 20px; /* Adjusted padding to align with the left edge of schedule boxes */
   padding-right: 18%;
   margin-bottom: 5%;
 }

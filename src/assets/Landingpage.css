@@ -1,29 +1,48 @@
 .body {
-  background-image: url('blue-pink-papers-happy-teacher-s-day-concept.jpg');
+  background-image: url("blue-pink-papers-happy-teacher-s-day-concept.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .contents-landing {
-  margin-left: 66rem;
+  text-align: right;
+  width: 100vw; /* Limit maximum width of the container */
+  margin: 0 auto; 
+  margin-right: 5%;/* Center the container horizontally */
 }
+
 .planner {
   color: white;
   font-size: 3rem;
+  margin-bottom: 2rem;
 }
+
 .btns {
-  margin-bottom: 2rem;
+  display: flex;
+  justify-content: right;
+  margin-right: 5%;
+
 }
+
 .conbtn {
-  border-radius: 20px;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-margin-left: 3rem;
-background-color: rgb(39, 164, 164);
-color: rgb(211, 200, 200);
-height: 3rem;
-width: 5rem;
-size: 3rem;
-font-weight: 600;
+  border-radius: 30px; /* Increase border-radius for a more curved button */
+  margin: 0 1rem; /* Adjust margin for spacing */
+  background-color: rgb(39, 164, 164);
+  color: white;
+  height: 3rem;
+  width: 8rem; /* Increase width for a larger button */
+  font-weight: 600;
+  border: none; /* Remove border */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add box shadow for a raised effect */
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s; /* Add transition for smooth hover effect */
+}
+
+.conbtn:hover {
+  transform: translateY(-2px); /* Move button slightly upwards on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Increase box shadow on hover */
 }

@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./SignUpForm.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { initializeApp } from "firebase/app";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 
 // Your Firebase configuration
 const firebaseConfig = {
@@ -21,41 +18,48 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
+const db = getFirestore();
 
 const SignUpForm = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState("");
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in.
-        const userId = user.uid;
-        // Redirect to user-specific dashboard
-        window.location.href = `/dashboard/${userId}`;
-      } else {
-        // User is signed out.
-      }
-    });
+  const handleSignUp = async (event) => {
+    event.preventDefault();
 
-    return () => {
-      unsubscribe();
-    };
-  }, [auth, history]);
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
 
-  const handleSignUp = async () => {
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      // SignUp successful, set success message
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      // Save user's name to Firestore under their user ID
+      await setDoc(doc(db, "users", userCredential.user.uid), {
+        name: name,
+        email: email,
+      });
+
       setSuccessMessage("Sign up successful!");
     } catch (error) {
-      // Handle errors
       console.error(error.message);
       setError(error.message);
     }
   };
+
+  // Redirect to signin route if sign up was successful
+  if (successMessage) {
+    return <Navigate to="/signin" />;
+  }
 
   return (
     <div className="bodys">
@@ -67,34 +71,45 @@ const SignUpForm = () => {
             {successMessage && (
               <p className="text-green-500 mb-4">{successMessage}</p>
             )}
-            <input
-              type="text"
-              className="input mb-4"
-              name="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-
-            <input
-              type="password"
-              className="input mb-4"
-              name="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-
-            <input
-              type="password"
-              className="input mb-4"
-              name="confirm_password"
-              placeholder="Confirm Password"
-            />
-
-            <button type="button" className="submit" onClick={handleSignUp}>
-              Sign Up
-            </button>
+            <form onSubmit={handleSignUp}>
+              {" "}
+              {/* Added onSubmit handler */}
+              <input
+                type="text"
+                className="input mb-4"
+                name="name"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <input
+                type="text"
+                className="input mb-4"
+                name="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="password"
+                className="input mb-4"
+                name="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <input
+                type="password"
+                className="input mb-4"
+                name="confirm_password"
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+              <button type="submit" className="submit">
+                Sign Up
+              </button>
+            </form>
 
             <div className="text-center small mt-4">
               By signing up, you agree to the{" "}

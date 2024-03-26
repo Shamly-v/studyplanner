@@ -8,9 +8,9 @@ import Journal from "./assets/Journal";
 import Landingpage from "./assets/Landingpage";
 import SignInForm from "./assets/Login";
 import SignUpForm from "./assets/SignUpForm";
+import Profile from "./assets/Profile";
 // Make sure the path is correct based on your project structure
 
-import React from "react";
 
 const App = () => {
   return (
@@ -24,6 +24,7 @@ const App = () => {
         <Route path="/calendar/:userid" element={<Calendar />} />
         <Route path="/resources/:userid" element={<Resource />} />
         <Route path="/journal/:userid" element={<Journal />} />
+        <Route path="/profile/:userid" element={<Profile />}/>
       </Routes>
     </BrowserRouter>
   );

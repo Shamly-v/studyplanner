@@ -2,18 +2,19 @@
 
 import React, { useState } from 'react';
 import './Navbar.css';
-import { Link } from 'react-router-dom/dist/umd/react-router-dom.development';
+import { Link, useParams } from 'react-router-dom/dist/umd/react-router-dom.development';
+
 
 const Navbar = ({active}) => {
   // const [activeTab, setActiveTab] = useState('');
-
+  const {userid} = useParams()
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
 
   return (
     <div className="navbar-container">
-  <Link to='/home'>
+  <Link to={`/dashboard/${userid}`}>
   <div 
         className={`tab ${active === 'home' ? 'active' : ''}`}
         // onClick={() => handleTabClick('home')}
@@ -24,7 +25,7 @@ const Navbar = ({active}) => {
         Home
       </div>
   </Link>
-      <Link to="/pre">
+      <Link to={`/preferences/${userid}`}>
       <div
         className={`tab ${active === 'preferences' ? 'active' : ''}`}
         // onClick={() => handleTabClick('preferences')}
@@ -34,7 +35,7 @@ const Navbar = ({active}) => {
 </svg></div>
         Preferences
       </div></Link>
-      <Link to="/cal">
+      <Link to={`/calendar/${userid}`}>
       <div
         className={`tab ${active === 'calendar' ? 'active' : ''}`}
         // onClick={() => handleTabClick('calendar')}
@@ -46,7 +47,7 @@ const Navbar = ({active}) => {
         Calendar
       </div>
       </Link>
-      <Link to="/Reso">
+      <Link to={`/resources/${userid}`}>
       <div
         className={`tab ${active === 'resources' ? 'active' : ''}`}
         // onClick={() => handleTabClick('resources')}
@@ -57,7 +58,7 @@ const Navbar = ({active}) => {
 </svg></div>
         Resources
       </div></Link>
-      <Link to="/jou">
+      <Link to={`/journal/${userid}`}>
       <div
         className={`tab ${active === 'journal' ? 'active' : ''}`}
         // onClick={() => handleTabClick('journal')}

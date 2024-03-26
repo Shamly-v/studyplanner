@@ -11,40 +11,52 @@ const Resource = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch resources for a specific user using the userid in the URL
         const response = await fetch(
           `http://localhost:5000/resource/${userid}`
         );
         const data = await response.json();
-        setResourceData(data.events || []); // Ensure events field exists and handle empty array
+        setResourceData(data.event_videos || []); // Use correct key for event videos
       } catch (error) {
         console.error("Error fetching resource data:", error);
       }
     };
 
     fetchData();
-  }, [userid]); // Add userid as a dependency
+  }, [userid]);
 
   return (
-    <div className="contentbox">
+    <div className="main">
       <Navbar active="resources" />
       <Taskbar />
-      <div className="big-container">
-        <h1 className="heading">Resource Title</h1>
-        <div className="inner-container">
-          <div className="content-container">
-            {resourceData.length > 0 ? (
-              <ul>
-                {resourceData.map((item, index) => (
-                  <li key={index}>{item}</li>
+    <div className="contentbox">
+      <div className="resource-container">
+        <h1 className="heading">Resources</h1>
+        <ul className="video-list">
+          {Object.entries(resourceData).map(([event, videos]) => (
+            <li key={event}>
+              <h2>{event}</h2>
+              <div className="video-cards">
+                {videos.map((video, index) => (
+                  <div className="video-card" key={index}>
+                    <div className="video-details">
+                      {/* <h3 className="video-title">{video.title}</h3>
+                      <p className="video-topic">{video.topic}</p>
+                      <p className="video-description">{video.description}</p> */}
+                      <iframe
+                        src={`https://www.youtube.com/embed/${video.video_id}`}
+                        title={video.title}
+                        frameBorder="0"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  </div>
                 ))}
-              </ul>
-            ) : (
-              <p>No resource data available.</p>
-            )}
-          </div>
-        </div>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
+    </div>
     </div>
   );
 };
